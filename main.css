@@ -1,0 +1,19 @@
+body {
+  font-family: Helvetica;
+  font-weight: bold;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.hr {
+  display: inline-block;
+  line-height: 42px;
+}
+.hr:before {
+  content: "";
+  display: block;
+  border-top: 3px solid black;
+}
