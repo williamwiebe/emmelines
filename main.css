@@ -12,6 +12,7 @@ h1 {
   display: inline-block;
   line-height: 42px;
 }
+
 .hr:before {
   content: "";
   display: block;
