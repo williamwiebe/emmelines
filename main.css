@@ -1,6 +1,5 @@
 body {
   font-family: Helvetica;
-  font-weight: bold;
   padding: 0;
 }
 
@@ -17,4 +16,13 @@ h1 {
   content: "";
   display: block;
   border-top: 3px solid black;
+}
+
+footer {
+  position: relative;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0;
 }
