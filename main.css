@@ -1,5 +1,13 @@
+@font-face {
+  font-family: "Akzidenz Grotesk";
+  src: url("fonts/akzidenz-grotesk-roman-webfont.woff2") format("woff2"),
+    url("fonts/akzidenz-grotesk-roman-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: Helvetica;
+  font-family: "Akzidenz Grotesk";
   padding: 0;
 }
 
