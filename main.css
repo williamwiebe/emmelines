@@ -7,13 +7,14 @@
 }
 
 body {
-  font-family: "Akzidenz Grotesk";
+  font-family: "Akzidenz Grotesk", sans-serif;
   padding: 0;
 }
 
 h1 {
   font-size: 3em;
   font-weight: normal;
+  letter-spacing: -0.02em;
 }
 
 .hr {
