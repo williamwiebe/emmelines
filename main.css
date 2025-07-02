@@ -7,11 +7,15 @@
 }
 
 body {
-  font-family: "Akzidenz Grotesk", sans-serif;
+  font-family: Times, serif;
+  margin-top: -0.5vh;
+  margin-left: 2vw;
   padding: 0;
+  overflow-x: hidden;
 }
 
 h1 {
+  font-family: "Akzidenz Grotesk", sans-serif;
   font-size: 3em;
   font-weight: normal;
   letter-spacing: -0.02em;
@@ -29,10 +33,14 @@ h1 {
 }
 
 footer {
+  font-family: "Akzidenz Grotesk", sans-serif;
+  margin-left: -4vw;
   position: relative;
 }
 
 .copyright {
   position: absolute;
   bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
 }
