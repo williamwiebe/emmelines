@@ -14,6 +14,11 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 h1 {
   font-family: "Akzidenz Grotesk", sans-serif;
   font-size: 3em;
