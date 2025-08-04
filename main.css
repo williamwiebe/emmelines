@@ -37,6 +37,10 @@ h1 {
   border-top: 3px solid black;
 }
 
+.email-wrapper {
+  font-family: Times, serif;
+}
+
 footer {
   font-family: "Akzidenz Grotesk", sans-serif;
   margin-left: -4vw;
