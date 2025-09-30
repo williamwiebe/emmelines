@@ -187,30 +187,36 @@ footer.newsletter form.submitted > #message {
 }
 
 @media (max-width: 480px) {
-  /* keep row on one line */
+  /* keep everything on one line */
   footer.newsletter form {
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
   }
 
-  /* make the button robust on tiny widths */
+  /* make the button unshrinkable and center its text (robust on iOS) */
   footer.newsletter button {
-    display: inline-flex; /* avoid line-height clipping */
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto; /* don't let it shrink */
-    white-space: nowrap; /* keep "Submit" intact */
-    min-width: 80px; /* ensure room for the text */
-    padding: 0 10px; /* a bit more breathing room */
-    height: var(--control-h); /* keep your consistent control height */
-    line-height: 1; /* stop relying on line-height for centering */
-    appearance: none;
-    -webkit-appearance: none; /* iOS: prevent odd native styling */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex: 0 0 auto !important; /* do not shrink */
+    min-width: 88px !important; /* enough for “Submit”; bump if you rename */
+    padding: 0 10px !important;
+
+    white-space: nowrap !important;
+    height: auto !important; /* stop height from clipping text */
+    min-height: var(--control-h) !important;
+    line-height: normal !important; /* avoid line-height centering issues */
+
+    color: #000 !important; /* safety: ensure visible text color */
+    background: #fff !important; /* safety: ensure visible background */
+    overflow: visible !important; /* let glyphs render fully */
+    -webkit-appearance: none !important; /* iOS quirks */
   }
 
   /* let the input be the thing that shrinks */
   footer.newsletter input[type="email"] {
-    flex: 1 1 auto;
-    min-width: 0; /* allow true shrinking */
-    width: auto;
+    flex: 1 1 auto !important;
+    min-width: 0 !important; /* allow true shrinking in flexbox */
+    width: auto !important;
   }
 }
