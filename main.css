@@ -112,13 +112,17 @@ footer.newsletter {
   }
 }
 
-/* Grid: label | input | button  (input has a sensible cap) */
+/* Keep label | input | button on ONE line always */
 footer.newsletter form {
   display: grid;
-  grid-template-columns: max-content minmax(18ch, 36ch) max-content;
+  /* label | input | button
+     - middle track can shrink to 0 on tiny screens (no wrap)
+     - but it’s capped so it won’t stretch across the world on desktop
+  */
+  grid-template-columns: max-content minmax(0, clamp(18ch, 40vw, 32ch)) max-content;
   grid-template-areas: "label input button";
   column-gap: 6px;
-  align-items: stretch; /* ⇦ all cells same height */
+  align-items: stretch;
   min-height: var(--row-h);
 }
 
