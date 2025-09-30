@@ -87,7 +87,7 @@ main {
 }
 
 /* =========================
-   Newsletter (aligned, capped, no jump)
+   Newsletter
 ========================= */
 footer.newsletter {
   font-family: "Akzidenz Grotesk", sans-serif;
@@ -103,11 +103,9 @@ footer.newsletter {
   padding: 8px 2vw;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
 
-  /* unified control height */
-  --row-h: 28px; /* 28–30 works well with 0.9rem */
+  --row-h: 28px; /* 28–30px works well with 0.9rem */
 }
 
-/* iOS safe-area */
 @supports (padding: max(0px)) {
   footer.newsletter {
     padding-bottom: max(8px, env(safe-area-inset-bottom));
@@ -115,9 +113,7 @@ footer.newsletter {
 }
 
 /* Grid: label | input | button
-   - middle track shrinks to 0 on tiny screens (no wrap)
-   - but is capped so it won't stretch endlessly on desktop
-*/
+   - middle track shrinks to 0 on tiny screens, but is capped on desktop */
 footer.newsletter form {
   display: grid;
   grid-template-columns: max-content minmax(0, clamp(18ch, 40vw, 32ch)) max-content;
@@ -127,50 +123,49 @@ footer.newsletter form {
   min-height: var(--row-h);
 }
 
-/* Common sizing/typography for all items in the row */
+/* Match font size across label, input, and button */
 footer.newsletter label,
 footer.newsletter input[type="email"],
-footer.newsletter button,
-footer.newsletter #message {
-  display: flex;
-  align-items: center; /* vertical centering */
+footer.newsletter button {
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: inherit;
   height: var(--row-h);
-  font: 400 0.9rem/1 inherit; /* weight, size/line-height, family */
-  white-space: nowrap;
-}
-
-/* Shared padding for control-like elements */
-footer.newsletter input[type="email"],
-footer.newsletter button,
-footer.newsletter #message {
-  padding: 0 10px;
 }
 
 /* Label */
 footer.newsletter label {
   grid-area: label;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 /* Email input */
 footer.newsletter input[type="email"] {
   grid-area: input;
+  width: 100%;
+  min-width: 0;
+  line-height: 1.1;
+  padding: 0 10px;
+  box-sizing: border-box;
   border: 1px solid #000;
   background: #fff;
   color: #000;
-  box-sizing: border-box;
-  min-width: 0; /* allow true shrink in middle track */
-  width: 100%;
-  line-height: 1.1;
 }
 
-/* Submit button (scoped) */
+/* Submit button */
 footer.newsletter button {
   grid-area: button;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 0 10px;
+  white-space: nowrap;
+  line-height: 1;
   border: 1px solid #000;
   background: #fff;
   color: #000;
-  line-height: 1;
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
@@ -178,12 +173,17 @@ footer.newsletter button {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Thank-you message: occupies the button cell; hidden by default */
-footer.newsletter #message {
-  grid-area: button;
-  justify-content: center;
-  border: 1px solid transparent; /* keeps optical alignment without adding a box */
-  display: none;
+/* Thank-you message: sits in the BUTTON cell, hidden by default */
+#message {
+  grid-area: label; /* ← same slot as the button */
+  display: none; /* hidden until success */
+  height: var(--row-h);
+  padding: 0;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  font-weight: 400;
+  /* IMPORTANT: don't center the whole row — keep default positioning */
+  /* no width:100%, no justify-self:center */
 }
 
 /* After success: hide controls, show message exactly where the button was */
@@ -194,7 +194,9 @@ footer.newsletter form.submitted > button {
 }
 
 footer.newsletter form.submitted > #message {
-  display: flex !important;
+  display: flex !important; /* render like a control */
+  align-items: center;
+  justify-content: center;
 }
 
 /* =========================
