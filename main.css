@@ -59,11 +59,10 @@ p {
 
 footer {
   font-family: "Akzidenz Grotesk", sans-serif;
-  margin-left: -4vw;
   position: relative;
 }
 
-.copyright {
+.newsletter {
   position: absolute;
   bottom: 0;
   white-space: nowrap;
