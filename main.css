@@ -137,20 +137,22 @@ footer.newsletter label {
 /* Inputs / buttons share sizing */
 footer.newsletter input[type="email"],
 footer.newsletter button {
-  height: var(--control-h);
-  line-height: calc(var(--control-h) - 2px); /* account for borders */
-  padding: 0 6px;
-  font-family: inherit;
-  font-size: 0.9rem;
+  display: inline-block; /* size to fit text */
+  font: inherit; /* inherit font family/size */
+  font-weight: 400; /* ensure normal weight */
+  white-space: nowrap; /* keep text on one line */
+  padding: 4px 10px; /* breathing room around text */
   border: 1px solid #000;
   background: #fff;
+  cursor: pointer;
+
+  /* remove the forced shared height/line-height */
+  height: auto;
+  line-height: normal;
 }
 footer.newsletter input[type="email"] {
   width: 200px;
   max-width: 100%;
-}
-footer.newsletter button {
-  cursor: pointer;
 }
 
 /* Thank-you message (hidden by default) */
@@ -183,54 +185,5 @@ footer.newsletter form.submitted > #message {
   .center-block img {
     width: 100% !important;
     height: auto !important;
-  }
-}
-
-@media (hover: none) and (pointer: coarse) and (max-width: 480px),
-  (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-height: 420px) {
-  /* Slightly shorter controls to buy space on tiny screens */
-  footer.newsletter {
-    --control-h: 26px;
-  }
-
-  /* Keep everything on one line */
-  footer.newsletter form {
-    flex-wrap: nowrap !important;
-    gap: 4px !important;
-  }
-
-  /* Label should never wrap */
-  footer.newsletter label {
-    white-space: nowrap !important;
-  }
-
-  /* Button: never shrink, center text robustly, normalize weight */
-  footer.newsletter button {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    flex: 0 0 auto !important; /* don't shrink */
-    min-width: 88px !important; /* enough for “Submit”; bump if you rename */
-    padding: 0 10px !important;
-
-    white-space: nowrap !important;
-    height: auto !important; /* avoid clipping */
-    min-height: var(--control-h) !important;
-    line-height: normal !important;
-
-    font-weight: 400 !important; /* prevent “bold” look */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    appearance: none !important;
-    -webkit-appearance: none !important;
-  }
-
-  /* Input takes remaining space and is allowed to truly shrink */
-  footer.newsletter input[type="email"] {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    width: auto !important;
   }
 }
