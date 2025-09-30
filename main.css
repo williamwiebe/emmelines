@@ -144,6 +144,7 @@ footer.newsletter button {
   padding: 4px 10px; /* breathing room around text */
   border: 1px solid #000;
   background: #fff;
+  font-size: 0.9rem;
   cursor: pointer;
 
   /* remove the forced shared height/line-height */
