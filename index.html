@@ -82,7 +82,15 @@
 
     <script>
       const form = document.getElementById("newsletter-form");
-      form.addEventListener("submit", function () {
+
+      form.addEventListener("submit", function (e) {
+        if (!form.checkValidity()) {
+          // Let the browser show its built-in error bubbles
+          e.preventDefault();
+          return;
+        }
+
+        // If valid, continue with your behavior
         this.classList.add("submitted");
       });
     </script>

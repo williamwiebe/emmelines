@@ -184,4 +184,18 @@ footer.newsletter form.submitted > #message {
     width: 100% !important;
     height: auto !important;
   }
+
+  footer.newsletter form {
+    flex-wrap: nowrap; /* keep everything on one line */
+  }
+
+  footer.newsletter button {
+    flex: 0 0 auto; /* don’t let it shrink */
+    min-width: 70px; /* adjust so “Submit” always fits comfortably */
+  }
+
+  footer.newsletter input[type="email"] {
+    flex: 1 1 auto; /* input shrinks instead */
+    min-width: 0; /* allow it to actually shrink in flexbox */
+  }
 }
