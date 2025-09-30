@@ -186,37 +186,51 @@ footer.newsletter form.submitted > #message {
   }
 }
 
-@media (max-width: 480px) {
-  /* keep everything on one line */
-  footer.newsletter form {
-    flex-wrap: nowrap !important;
+@media (hover: none) and (pointer: coarse) and (max-width: 480px),
+  (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-height: 420px) {
+  /* Slightly shorter controls to buy space on tiny screens */
+  footer.newsletter {
+    --control-h: 26px;
   }
 
-  /* make the button unshrinkable and center its text (robust on iOS) */
+  /* Keep everything on one line */
+  footer.newsletter form {
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+  }
+
+  /* Label should never wrap */
+  footer.newsletter label {
+    white-space: nowrap !important;
+  }
+
+  /* Button: never shrink, center text robustly, normalize weight */
   footer.newsletter button {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
 
-    flex: 0 0 auto !important; /* do not shrink */
+    flex: 0 0 auto !important; /* don't shrink */
     min-width: 88px !important; /* enough for “Submit”; bump if you rename */
     padding: 0 10px !important;
 
     white-space: nowrap !important;
-    height: auto !important; /* stop height from clipping text */
+    height: auto !important; /* avoid clipping */
     min-height: var(--control-h) !important;
-    line-height: normal !important; /* avoid line-height centering issues */
+    line-height: normal !important;
 
-    color: #000 !important; /* safety: ensure visible text color */
-    background: #fff !important; /* safety: ensure visible background */
-    overflow: visible !important; /* let glyphs render fully */
-    -webkit-appearance: none !important; /* iOS quirks */
+    font-weight: 400 !important; /* prevent “bold” look */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    appearance: none !important;
+    -webkit-appearance: none !important;
   }
 
-  /* let the input be the thing that shrinks */
+  /* Input takes remaining space and is allowed to truly shrink */
   footer.newsletter input[type="email"] {
     flex: 1 1 auto !important;
-    min-width: 0 !important; /* allow true shrinking in flexbox */
+    min-width: 0 !important;
     width: auto !important;
   }
 }
