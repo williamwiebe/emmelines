@@ -127,10 +127,10 @@ footer.newsletter form {
   align-items: center; /* vertical centering */
   gap: 6px; /* row / column gaps */
   flex-wrap: wrap; /* wrap gracefully on narrow screens */
-  min-height: var(--control-h);
 }
 /* Keep label on one line */
 footer.newsletter label {
+  font-size: 0.9rem; /* match input & button */
   white-space: nowrap;
 }
 
