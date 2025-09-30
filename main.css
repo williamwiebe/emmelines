@@ -184,18 +184,33 @@ footer.newsletter form.submitted > #message {
     width: 100% !important;
     height: auto !important;
   }
+}
 
+@media (max-width: 480px) {
+  /* keep row on one line */
   footer.newsletter form {
-    flex-wrap: nowrap; /* keep everything on one line */
+    flex-wrap: nowrap;
   }
 
+  /* make the button robust on tiny widths */
   footer.newsletter button {
-    flex: 0 0 auto; /* don’t let it shrink */
-    min-width: 70px; /* adjust so “Submit” always fits comfortably */
+    display: inline-flex; /* avoid line-height clipping */
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto; /* don't let it shrink */
+    white-space: nowrap; /* keep "Submit" intact */
+    min-width: 80px; /* ensure room for the text */
+    padding: 0 10px; /* a bit more breathing room */
+    height: var(--control-h); /* keep your consistent control height */
+    line-height: 1; /* stop relying on line-height for centering */
+    appearance: none;
+    -webkit-appearance: none; /* iOS: prevent odd native styling */
   }
 
+  /* let the input be the thing that shrinks */
   footer.newsletter input[type="email"] {
-    flex: 1 1 auto; /* input shrinks instead */
-    min-width: 0; /* allow it to actually shrink in flexbox */
+    flex: 1 1 auto;
+    min-width: 0; /* allow true shrinking */
+    width: auto;
   }
 }
