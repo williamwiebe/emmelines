@@ -125,7 +125,7 @@ footer.newsletter {
 footer.newsletter form {
   display: flex;
   align-items: center; /* vertical centering */
-  gap: 6px 8px; /* row / column gaps */
+  gap: 6px; /* row / column gaps */
   flex-wrap: wrap; /* wrap gracefully on narrow screens */
   min-height: var(--control-h);
 }
@@ -151,7 +151,9 @@ footer.newsletter button {
   line-height: normal;
 }
 footer.newsletter input[type="email"] {
-  width: 200px;
+  flex: 1 1 auto;
+  min-width: 0; /* allow shrinking */
+  width: auto;
   max-width: 100%;
 }
 
