@@ -65,8 +65,10 @@ footer {
 .newsletter {
   position: absolute;
   bottom: 0;
-  white-space: nowrap;
-  overflow: hidden;
+  flex: 0 0 50px; /*or just height:50px;*/
+  margin-top: auto;
+  /* white-space: nowrap;
+  overflow: hidden; */
 }
 
 @media (max-width: 768px) {
