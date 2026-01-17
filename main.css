@@ -3,7 +3,8 @@
 ========================= */
 @font-face {
   font-family: "Akzidenz Grotesk";
-  src: url("fonts/akzidenz-grotesk-roman-webfont.woff2") format("woff2"),
+  src:
+    url("fonts/akzidenz-grotesk-roman-webfont.woff2") format("woff2"),
     url("fonts/akzidenz-grotesk-roman-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -31,7 +32,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 60px;
+  padding-bottom: 800px;
 }
 
 a {
@@ -116,7 +117,10 @@ footer.newsletter {
    - middle track shrinks to 0 on tiny screens, but is capped on desktop */
 footer.newsletter form {
   display: grid;
-  grid-template-columns: max-content minmax(0, clamp(18ch, 40vw, 32ch)) max-content;
+  grid-template-columns: max-content minmax(
+      0,
+      clamp(18ch, 40vw, 32ch)
+    ) max-content;
   grid-template-areas: "label input button";
   column-gap: 6px;
   align-items: stretch;
