@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
   </head>
 
   <body>
@@ -20,11 +22,16 @@
         Group Material, Felix Gonzalez-Torres, Barbara Kruger, David Wells<br />
         June 6 – July 25, 2026
       </p>
-      <p><a href="">Press Release</a><br /><a href="">Checklist</a></p>
+      <!-- <p><a href="">Press Release</a><br /><a href="">Checklist</a></p> -->
       <br />
       <div class="center-block">
-        <p>
+        <div class="plyr__video-embed" id="player">
           <iframe
+            src="https://www.youtube-nocookie.com/embed/QpUFEgHa44A?autoplay=1&mute=1&controls=0&loop=1"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <!--<iframe
             width="560"
             height="315"
             src="https://www.youtube-nocookie.com/embed/QpUFEgHa44A?si=E-GsxgRnYMgXLRSG&autoplay=1&mute=1&controls=0&loop=1
@@ -33,9 +40,28 @@
             allow="autoplay; encrypted-media"
             allowfullscreen
             rel="0"
-          ></iframe>
-        </p>
+          ></iframe> -->
+        </div>
       </div>
     </main>
+    <script>
+      const player = new Plyr("#player", {
+        controls: [
+          "play-large",
+          "play",
+          "progress",
+          "current-time",
+          "mute",
+          "volume",
+          "fullscreen",
+        ],
+        youtube: {
+          noCookie: true,
+          rel: 0,
+          iv_load_policy: 3,
+          modestbranding: 1,
+        },
+      });
+    </script>
   </body>
 </html>
