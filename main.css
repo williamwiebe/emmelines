@@ -32,7 +32,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 800px;
+  padding-bottom: 1000px;
+  line-height: 1.25;
 }
 
 a {
@@ -117,10 +118,9 @@ footer.newsletter {
    - middle track shrinks to 0 on tiny screens, but is capped on desktop */
 footer.newsletter form {
   display: grid;
-  grid-template-columns: max-content minmax(
-      0,
-      clamp(18ch, 40vw, 32ch)
-    ) max-content;
+  grid-template-columns:
+    max-content minmax(0, clamp(18ch, 40vw, 32ch))
+    max-content;
   grid-template-areas: "label input button";
   column-gap: 6px;
   align-items: stretch;
