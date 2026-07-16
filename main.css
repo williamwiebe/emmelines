@@ -32,7 +32,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 1100px;
   line-height: 1.2;
 }
 
@@ -76,6 +75,7 @@ h1 {
 ========================= */
 main {
   flex: 1;
+  padding-bottom: calc(60px + env(safe-area-inset-bottom));
 } /* grows to push footer down if not fixed */
 
 .center-block {
